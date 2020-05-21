@@ -69,16 +69,11 @@ set mouse+=a
 " for movement, rather than using more efficient movement commands, is also a
 " bad habit. The former is enforced through a .vimrc, while we don't know how
 " to prevent the latter.
-" Do this in normal mode...
+" Do this in normal mode.
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
-" ...and in insert mode
-inoremap <Left>  :echoe "Use h"<CR>
-inoremap <Right> :echoe "Use l"<CR>
-inoremap <Up>    :echoe "Use k"<CR>
-inoremap <Down>  :echoe "Use j"<CR>
 
 " Auto adds indentations.
 filetype plugin indent on
@@ -93,10 +88,10 @@ set expandtab
 set tabstop=2 
 
 " Number of spaces to use when indenting or de-indenting.
-set shiftwidth=4 
+set shiftwidth=2 
 
 " Set softtabstop.
-set softtabstop=4
+set softtabstop=2
 
 " Autoindentation.
 set autoindent
