@@ -11,10 +11,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
+Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
-
+Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
@@ -68,14 +68,24 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 set number
 set relativenumber
 
+set mouse=a
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
+set cursorline
 set smarttab
 set cindent
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-colorscheme gruvbox
+colorscheme darkscene
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -223,5 +233,33 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+ 
 " Ensures NERDTree only opens once
 au VimEnter *  NERDTree
+
+" Closetag configs
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
+
+" This will make the list of non-closing tags self-closing in the specified
+" files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript'
+
+" This will make the list of non-closing tags case-sensitive
+" integer value[0|1]
+let g:closetag_emptyTags_caseSensitive = 1
+
+" Disables auto-close if not in a 'valid' region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
