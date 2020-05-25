@@ -1,4 +1,4 @@
-# neovim-config
+## neovim-config
 
 If you're getting errors about ^M not an editor command or trailing characters
 
