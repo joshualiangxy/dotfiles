@@ -76,6 +76,8 @@ if exists('+termguicolors')
   endif
 set cursorline
 set smarttab
+set ignorecase
+set smartcase
 set cindent
 set tabstop=2
 set softtabstop=2
@@ -109,7 +111,6 @@ autocmd BufEnter * call SyncTree()
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ ]
