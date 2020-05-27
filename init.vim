@@ -91,6 +91,9 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 colorscheme darkscene
 
+" Uncomment if on a system with transparency
+" hi Normal guibg=NONE ctermbg=NONE
+
 " sync open file with NERDTree
 " Check if NERDTree is open or active
 function! IsNERDTreeOpen()        
@@ -239,7 +242,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
- 
+
 " Ensures NERDTree only opens once
 au VimEnter *  NERDTree
 
