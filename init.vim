@@ -16,7 +16,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 " Initialize plugin system
@@ -72,12 +73,13 @@ set mouse=a
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
-  endif
+  set termguicolors
+endif
 set cursorline
 set smarttab
 set ignorecase
 set smartcase
+set splitbelow splitright
 set cindent
 set tabstop=2
 set softtabstop=2
@@ -90,7 +92,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 colorscheme darkscene
 
 " sync open file with NERDTree
-" " Check if NERDTree is open or active
+" Check if NERDTree is open or active
 function! IsNERDTreeOpen()        
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
@@ -106,6 +108,9 @@ endfunction
 
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
+
+" Set airline theme
+let g:airline_theme='deus'
 
 " coc config
 let g:coc_global_extensions = [
