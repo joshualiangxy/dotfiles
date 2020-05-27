@@ -14,8 +14,11 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
@@ -90,7 +93,7 @@ set expandtab
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-colorscheme darkscene
+colorscheme nord
 
 " Uncomment if on a system with transparency
 " hi Normal guibg=NONE ctermbg=NONE
