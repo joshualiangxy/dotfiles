@@ -66,6 +66,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+set encoding=utf-8
 set number
 set relativenumber
 
@@ -113,6 +114,7 @@ endfunction
 autocmd BufEnter * call SyncTree()
 
 " Set airline theme
+let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
 
 " coc config
