@@ -14,6 +14,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-surround'
 
 Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
