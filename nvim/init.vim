@@ -94,10 +94,10 @@ set expandtab
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-colorscheme nord
+colorscheme darkscene
 
 " Uncomment if on a system with transparency
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " sync open file with NERDTree
 " Check if NERDTree is open or active
