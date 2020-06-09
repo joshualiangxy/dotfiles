@@ -92,7 +92,7 @@ set softtabstop=2
 set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
-set colorcolumn=80
+set colorcolumn=81
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 colorscheme darkscene
