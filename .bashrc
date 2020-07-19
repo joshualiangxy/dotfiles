@@ -132,3 +132,5 @@ export NVM_DIR="$HOME/.nvm"
 # export PATH="$HOME/.local/bin:$PATH"
 
 neofetch
+
+export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
