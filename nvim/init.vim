@@ -295,3 +295,7 @@ let g:closetag_shortcut = '>'
 
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
+
+autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType c setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4
