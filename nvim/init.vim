@@ -16,6 +16,9 @@ Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
@@ -30,48 +33,6 @@ Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 call plug#end()
 
 inoremap jk <ESC>
-nmap <C-n> :NERDTreeToggle<CR>
-vmap <C-_> <plug>NERDCommenterToggle
-nmap <C-_> <plug>NERDCommenterToggle
-
-" open NERDTree automatically
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * NERDTree
-
-let g:NERDTreeGitStatusWithFlags = 1
-" let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-" let g:NERDTreeGitStatusNodeColorization = 1
-" let g:NERDTreeColorMapCustom = {
-    "\ "Staged"    : "#0ee375",  
-    "\ "Modified"  : "#d9bf91",  
-    "\ "Renamed"   : "#51C9FC",  
-    "\ "Untracked" : "#FCE77C",  
-    "\ "Unmerged"  : "#FC51E6",  
-    "\ "Dirty"     : "#FFBD61",  
-    "\ "Clean"     : "#87939A",   
-    "\ "Ignored"   : "#808080"   
-    "\ }                         
-
-let g:NERDTreeIgnore = ['^node_modules$']
-
-" vim-prettier
-" let g:prettier#quickfix_enabled = 0
-" let g:prettier#quickfix_auto_focus = 0
-" prettier command for coc
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" run prettier on save
-" let g:prettier#autoformat = 0
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-" fzf
-" Jump to specific file
-nnoremap <C-p> :Files<cr>
-" Search whole project
-nnoremap \ :Rg<space>
-
-" j/k will move virtual lines (lines that wrap)
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 set encoding=utf-8
 set number
@@ -120,8 +81,53 @@ set signcolumn=yes
 " set cursor to blinking
 set guicursor+=a:blinkon100
 
+" Ensures cursor style restored after exiting neovim
+au VimLeave * set guicursor=a:ver100-blinkon100
+
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" ------------------------------------------------------------------------------
+" Prettier
+" ------------------------------------------------------------------------------
+" vim-prettier
+" let g:prettier#quickfix_enabled = 0
+" let g:prettier#quickfix_auto_focus = 0
+" prettier command for coc
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" run prettier on save
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+" ------------------------------------------------------------------------------
+" NerdTree
+" ------------------------------------------------------------------------------
+nmap <C-n> :NERDTreeToggle<CR>
+vmap <C-_> <plug>NERDCommenterToggle
+nmap <C-_> <plug>NERDCommenterToggle
+
+" open NERDTree automatically
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * NERDTree
+
+let g:NERDTreeGitStatusWithFlags = 1
+" let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+" let g:NERDTreeGitStatusNodeColorization = 1
+" let g:NERDTreeColorMapCustom = {
+    "\ "Staged"    : "#0ee375",  
+    "\ "Modified"  : "#d9bf91",  
+    "\ "Renamed"   : "#51C9FC",  
+    "\ "Untracked" : "#FCE77C",  
+    "\ "Unmerged"  : "#FC51E6",  
+    "\ "Dirty"     : "#FFBD61",  
+    "\ "Clean"     : "#87939A",   
+    "\ "Ignored"   : "#808080"   
+    "\ }                         
+
+let g:NERDTreeIgnore = ['^node_modules$']
+
+" Ensures NERDTree only opens once
+au VimEnter *  NERDTree
 
 " sync open file with NERDTree
 " Check if NERDTree is open or active
@@ -141,19 +147,19 @@ endfunction
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
 
+" Ensures NERDTree only opens once
+au VimEnter *  NERDTree
+
+" ------------------------------------------------------------------------------
+" Airline
+" ------------------------------------------------------------------------------
 " Set airline theme
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
 
-" coc config
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-tsserver',
-  \ 'coc-prettier', 
-  \ 'coc-json', 
-  \ 'coc-clangd'
-  \ ]
-
+" ------------------------------------------------------------------------------
+" NerdCommenter
+" ------------------------------------------------------------------------------
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
@@ -162,6 +168,18 @@ let g:NERDCompactSexyComs = 1
 
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '//' } }
+
+" ------------------------------------------------------------------------------
+" Coc
+" ------------------------------------------------------------------------------
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ 'coc-clangd'
+  \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -273,12 +291,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" Ensures NERDTree only opens once
-au VimEnter *  NERDTree
-
-" Ensures cursor style restored after exiting neovim
-au VimLeave * set guicursor=a:ver100-blinkon100
-
+" ------------------------------------------------------------------------------
+" Closetag
+" ------------------------------------------------------------------------------
 " Closetag configs
 " These are the file extensions where this plugin is enabled.
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
@@ -305,3 +320,30 @@ let g:closetag_shortcut = '>'
 
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
+
+" ------------------------------------------------------------------------------
+" fzf
+" ------------------------------------------------------------------------------
+" Jump to specific file
+nnoremap <C-p> :Files<cr>
+" Search whole project
+nnoremap \ :Rg<space>
+
+" j/k will move virtual lines (lines that wrap)
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+" ------------------------------------------------------------------------------
+" Markdown
+" ------------------------------------------------------------------------------
+autocmd FileType markdown let b:sleuth_automatic=0
+autocmd FileType markdown set conceallevel=0
+autocmd FileType markdown normal zR
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
+
+" ------------------------------------------------------------------------------
+" Markdown-preview
+" ------------------------------------------------------------------------------
+let g:mkdp_refresh_slow = 1
+let g:mkdp_markdown_css = '/home/thuya/.local/lib/github-markdown-css/github-markdown.css'
