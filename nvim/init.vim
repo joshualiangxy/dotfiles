@@ -52,7 +52,6 @@ let g:NERDTreeGitStatusWithFlags = 1
     "\ "Ignored"   : "#808080"   
     "\ }                         
 
-
 let g:NERDTreeIgnore = ['^node_modules$']
 
 " vim-prettier
@@ -63,7 +62,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " run prettier on save
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
 
 " fzf
 " Jump to specific file
@@ -91,9 +89,9 @@ set ignorecase
 set smartcase
 set splitbelow splitright
 set cindent
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 " always uses spaces instead of tab characters
 set expandtab
 set colorcolumn=81
@@ -103,6 +101,27 @@ colorscheme darkscene
 
 " Uncomment if on a system with transparency
 hi Normal guibg=NONE ctermbg=NONE
+
+" if hidden is not set, TextEdit might fail.
+set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup 
+
+" Better display for messages 
+set cmdheight=2 
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" set cursor to blinking
+set guicursor+=a:blinkon100
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " sync open file with NERDTree
 " Check if NERDTree is open or active
@@ -134,24 +153,6 @@ let g:coc_global_extensions = [
   \ 'coc-json', 
   \ 'coc-clangd'
   \ ]
-" from readme
-" if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup 
-
-" Better display for messages 
-set cmdheight=2 
-
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
-
-" set cursor to blinking
-set guicursor+=a:blinkon100
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -304,7 +305,3 @@ let g:closetag_shortcut = '>'
 
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
-
-autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType c setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4
