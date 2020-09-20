@@ -24,6 +24,7 @@ Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
+Plug 'embark-theme/vim', { 'as': 'embark'  }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -58,7 +59,7 @@ set expandtab
 set colorcolumn=81
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-colorscheme darkscene
+colorscheme embark
 
 " Uncomment if on a system with transparency
 hi Normal guibg=NONE ctermbg=NONE
@@ -86,6 +87,7 @@ au VimLeave * set guicursor=a:ver100-blinkon100
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType asm setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ------------------------------------------------------------------------------
 " Prettier
@@ -336,7 +338,7 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " ------------------------------------------------------------------------------
 " Markdown
 " ------------------------------------------------------------------------------
-autocmd FileType markdown let b:sleuth_automatic=0
+" autocmd FileType markdown let b:sleuth_automatic=0
 autocmd FileType markdown set conceallevel=0
 autocmd FileType markdown normal zR
 let g:vim_markdown_auto_insert_bullets = 0
