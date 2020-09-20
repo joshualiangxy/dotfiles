@@ -17,9 +17,16 @@ will no longer be updated
 **Warning:** If you want to try out these dotfiles, fork the repo first and
 review the content that you want to use. Use at your own risk!
 
-**Things to do before setting up:**<br>
+**Things to do before setting up:**
+
 Many of the dotfiles require [nodejs](https://github.com/nvm-sh/nvm) and 
 python, so probably install both first.
+
+In order for many of the terminal icons and powerline arrows to show up,
+get a [nerd-font](https://github.com/ryanoasis/nerd-fonts) and configure your 
+terminal to make use of the font.
+
+I am currently using the font InconsolataGo NF
 
 ### bash/bash_aliases
 
