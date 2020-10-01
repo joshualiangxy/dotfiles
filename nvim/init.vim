@@ -88,6 +88,7 @@ au VimLeave * set guicursor=a:ver100-blinkon100
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType asm setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ------------------------------------------------------------------------------
 " Prettier
