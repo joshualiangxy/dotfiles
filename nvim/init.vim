@@ -25,6 +25,7 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'embark-theme/vim', { 'as': 'embark'  }
+Plug 'NieTiger/halcyon-neovim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -85,10 +86,11 @@ set guicursor+=a:blinkon100
 " Ensures cursor style restored after exiting neovim
 au VimLeave * set guicursor=a:ver100-blinkon100
 
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType asm setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType asm setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " ------------------------------------------------------------------------------
 " Prettier
@@ -97,10 +99,10 @@ autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " let g:prettier#quickfix_enabled = 0
 " let g:prettier#quickfix_auto_focus = 0
 " prettier command for coc
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " run prettier on save
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " ------------------------------------------------------------------------------
 " NerdTree
@@ -179,10 +181,10 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '//' } }
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
-  \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-clangd'
   \ ]
+" \ 'coc-prettier', 
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
