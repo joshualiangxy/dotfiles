@@ -19,6 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'tpope/vim-repeat'
 
 Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
