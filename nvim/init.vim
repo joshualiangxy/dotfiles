@@ -25,7 +25,7 @@ Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
-Plug 'embark-theme/vim', { 'as': 'embark'  }
+Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'NieTiger/halcyon-neovim'
 
 Plug 'vim-airline/vim-airline'
@@ -344,7 +344,8 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " ------------------------------------------------------------------------------
 " autocmd FileType markdown let b:sleuth_automatic=0
 autocmd FileType markdown set conceallevel=0
-autocmd FileType markdown normal zR
+" autocmd FileType markdown normal zR
+let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 
