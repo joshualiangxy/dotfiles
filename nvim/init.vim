@@ -37,6 +37,8 @@ call plug#end()
 
 inoremap jk <ESC>
 
+colorscheme embark
+
 set encoding=utf-8
 set number
 set relativenumber
@@ -59,9 +61,8 @@ set shiftwidth=4
 " always uses spaces instead of tab characters
 set expandtab
 set colorcolumn=81
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-colorscheme embark
+set shada='50,<1000,s100,:0,n~/nvim/shada'
+highlight ColorColumn ctermbg=0
 
 " Uncomment if on a system with transparency
 hi Normal guibg=NONE ctermbg=NONE
@@ -87,11 +88,11 @@ set guicursor+=a:blinkon100
 " Ensures cursor style restored after exiting neovim
 au VimLeave * set guicursor=a:ver100-blinkon100
 
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType asm setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType javascript,typescript,css,asm,json setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType asm setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " ------------------------------------------------------------------------------
 " Prettier
@@ -183,7 +184,8 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-json', 
-  \ 'coc-clangd'
+  \ 'coc-clangd',
+  \ 'coc-python'
   \ ]
 " \ 'coc-prettier', 
 
