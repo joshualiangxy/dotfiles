@@ -7,19 +7,21 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter' " Shows the lines added/removed/changed
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'tpope/vim-repeat'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'aswathkk/darkscene.vim'
 Plug 'morhetz/gruvbox'
@@ -88,11 +90,15 @@ set guicursor+=a:blinkon100
 " Ensures cursor style restored after exiting neovim
 au VimLeave * set guicursor=a:ver100-blinkon100
 
-autocmd FileType javascript,typescript,css,asm,json setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType javascript,javascriptreact,typescript,typescriptreact,css,asm,json,html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " autocmd FileType asm setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
+nnoremap <C-j> <C-W><C-j>
+nnoremap <C-k> <C-W><C-k>
+nnoremap <C-l> <C-W><C-l>
+nnoremap <C-h> <C-W><C-h>
 
 " ------------------------------------------------------------------------------
 " Prettier
@@ -134,7 +140,7 @@ let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeIgnore = ['^node_modules$']
 
 " Ensures NERDTree only opens once
-au VimEnter *  NERDTree
+au VimEnter * NERDTree
 
 " sync open file with NERDTree
 " Check if NERDTree is open or active
@@ -185,7 +191,7 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-json', 
   \ 'coc-clangd',
-  \ 'coc-python'
+  \ 'coc-pyright'
   \ ]
 " \ 'coc-prettier', 
 
@@ -304,14 +310,14 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " ------------------------------------------------------------------------------
 " Closetag configs
 " These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*.ts,*.tsx'
 
 " This will make the list of non-closing tags self-closing in the specified
 " files.
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " These are the file types where this plugin is enabled.
-let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript'
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript,tsx,typescript'
 
 " This will make the list of non-closing tags case-sensitive
 " integer value[0|1]
@@ -356,3 +362,4 @@ let g:vim_markdown_new_list_item_indent = 0
 " ------------------------------------------------------------------------------
 let g:mkdp_refresh_slow = 1
 let g:mkdp_markdown_css = '/home/thuya/.local/lib/github-markdown-css/github-markdown.css'
+
