@@ -70,10 +70,10 @@ highlight ColorColumn ctermbg=0
 hi Normal guibg=NONE ctermbg=NONE
 
 " if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup 
+set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup
 
-" Better display for messages 
-set cmdheight=2 
+" Better display for messages
+set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
@@ -91,10 +91,7 @@ set guicursor+=a:blinkon100
 au VimLeave * set guicursor=a:ver100-blinkon100
 
 autocmd FileType javascript,javascriptreact,typescript,typescriptreact,css,asm,json,html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-" autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
-" autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-" autocmd FileType asm setlocal tabstop=2 shiftwidth=2 softtabstop=2
-" autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
 nnoremap <C-j> <C-W><C-j>
 nnoremap <C-k> <C-W><C-k>
 nnoremap <C-l> <C-W><C-l>
@@ -127,15 +124,15 @@ let g:NERDTreeGitStatusWithFlags = 1
 " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 " let g:NERDTreeGitStatusNodeColorization = 1
 " let g:NERDTreeColorMapCustom = {
-    "\ "Staged"    : "#0ee375",  
-    "\ "Modified"  : "#d9bf91",  
-    "\ "Renamed"   : "#51C9FC",  
-    "\ "Untracked" : "#FCE77C",  
-    "\ "Unmerged"  : "#FC51E6",  
-    "\ "Dirty"     : "#FFBD61",  
-    "\ "Clean"     : "#87939A",   
-    "\ "Ignored"   : "#808080"   
-    "\ }                         
+    "\ "Staged"    : "#0ee375",
+    "\ "Modified"  : "#d9bf91",
+    "\ "Renamed"   : "#51C9FC",
+    "\ "Untracked" : "#FCE77C",
+    "\ "Unmerged"  : "#FC51E6",
+    "\ "Dirty"     : "#FFBD61",
+    "\ "Clean"     : "#87939A",
+    "\ "Ignored"   : "#808080"
+    "\ }
 
 let g:NERDTreeIgnore = ['^node_modules$']
 
@@ -144,7 +141,7 @@ au VimEnter * NERDTree
 
 " sync open file with NERDTree
 " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
+function! IsNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
@@ -189,11 +186,11 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '//' } }
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
-  \ 'coc-json', 
+  \ 'coc-json',
   \ 'coc-clangd',
   \ 'coc-pyright'
   \ ]
-" \ 'coc-prettier', 
+" \ 'coc-prettier',
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
