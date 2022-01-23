@@ -14,7 +14,6 @@ Plug 'scrooloose/nerdcommenter'
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -69,8 +68,8 @@ highlight ColorColumn ctermbg=0
 " Uncomment if on a system with transparency
 hi Normal guibg=NONE ctermbg=NONE
 
-" if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup
+" Hides buffer instead of closing
+set hidden
 
 " Better display for messages
 set cmdheight=2
@@ -90,7 +89,7 @@ set guicursor+=a:blinkon100
 " Ensures cursor style restored after exiting neovim
 au VimLeave * set guicursor=a:ver100-blinkon100
 
-autocmd FileType javascript,javascriptreact,typescript,typescriptreact,css,asm,json,html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType javascript,javascriptreact,typescript,typescriptreact,css,asm,json,html,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 nnoremap <C-j> <C-W><C-j>
 nnoremap <C-k> <C-W><C-k>
@@ -307,14 +306,16 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " ------------------------------------------------------------------------------
 " Closetag configs
 " These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*.ts,*.tsx'
+" let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*.ts,*.tsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 " This will make the list of non-closing tags self-closing in the specified
 " files.
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " These are the file types where this plugin is enabled.
-let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript,tsx,typescript'
+" let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript,tsx,typescript'
+let g:closetag_filetypes = 'html,xhtml,phtml'
 
 " This will make the list of non-closing tags case-sensitive
 " integer value[0|1]
@@ -324,6 +325,8 @@ let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_regions = {
     \ 'typescript.tsx': 'jsxRegion,tsxRegion',
     \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
     \ }
 
 " Shortcut for closing tags, default is '>'
