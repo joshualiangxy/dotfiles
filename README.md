@@ -1,7 +1,7 @@
 # Dotfiles
 
 ![Screenshot of shell prompt](https://i.imgur.com/qzdMWzW.png)
-![Screenshot of neovim](https://i.imgur.com/eCWdX8a.png)
+![Screenshot of neovim](https://i.imgur.com/qaFKEI9.png)
 
 ### My current set up
 Terminal: Windows-Terminal<br>
