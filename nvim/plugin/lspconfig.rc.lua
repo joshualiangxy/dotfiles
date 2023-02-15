@@ -21,7 +21,7 @@ nvim_lsp.tsserver.setup {
 
 nvim_lsp.clangd.setup {
   on_attach = on_attach,
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "h", "hpp" },
   root_dir = nvim_lsp.util.root_pattern(
     '.clangd',
     '.clang-tidy',
@@ -31,6 +31,7 @@ nvim_lsp.clangd.setup {
     'configure.ac',
     '.git'
   ),
+  single_file_support = true,
   cmd = { "clangd-12" }
 }
 
@@ -50,3 +51,47 @@ nvim_lsp.sumneko_lua.setup {
     }
   }
 }
+
+nvim_lsp.ocamllsp.setup {
+  on_attach = on_attach,
+  filetypes = {
+    "ml",
+    "ocaml",
+    "ocaml.menhir",
+    "ocaml.interface",
+    "ocaml.ocamllex",
+    "reason",
+    "dune"
+  },
+  root_dir = nvim_lsp.util.root_pattern(
+    "*.opam",
+    "esy.json",
+    "package.json",
+    ".git",
+    "dune-project",
+    "dune-workspace"
+  ),
+  cmd = { "ocamllsp" },
+}
+
+nvim_lsp.java_language_server.setup {
+  on_attach = on_attach,
+  filetypes = { "java" },
+  settings = {}
+}
+
+--[[
+nvim_lsp.pylsp.setup {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 120
+        }
+      }
+    }
+  }
+}
+--]]
+

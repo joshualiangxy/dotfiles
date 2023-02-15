@@ -36,7 +36,7 @@ vim.opt.scrolloff = 10
 vim.opt.shell = 'bash'
 vim.opt.backupskip = '/tmp/*,/private/tmp/*'
 vim.opt.inccommand = 'split'
-vim.opt.wrap = true -- No wrap lines
+vim.opt.wrap = false -- No wrap lines
 vim.opt.backspace = 'start,eol,indent'
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
@@ -66,4 +66,20 @@ vim.api.nvim_create_autocmd("VimLeave", {
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
+
+vim.wo.colorcolumn = "81"
+
+-- highlight yanked stuff. Done with native neovim api. No plugin.
+-- augroup command didn't work with vim.cmd.
+-- TODO: Find the difference between vim.api.nvim_command (alias vim.cmd)
+-- and vim.api.nvim_exec
+vim.api.nvim_exec(
+  [[
+    augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+    augroup END
+  ]],
+  false
+)
 

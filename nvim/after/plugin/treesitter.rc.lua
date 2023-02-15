@@ -8,7 +8,7 @@ ts.setup {
   },
   indent = {
     enable = true,
-    diable = {},
+    disable = {},
   },
   ensure_installed = {
     'bash',
@@ -20,6 +20,7 @@ ts.setup {
     'javascript',
     'jsdoc',
     'json',
+    'ocaml',
     'python',
     'rust',
     'sql',
