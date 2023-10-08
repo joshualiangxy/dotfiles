@@ -22,10 +22,10 @@ keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
 
 -- Move window
 keymap.set('n', '<Space>', '<C-w>w')
-keymap.set('', '<C-h>', '<C-w>h')
-keymap.set('', '<C-k>', '<C-w>k')
-keymap.set('', '<C-j>', '<C-w>j')
-keymap.set('', '<C-l>', '<C-w>l')
+keymap.set('n', '<C-h>', '<C-w>h')
+keymap.set('n', '<C-k>', '<C-w>k')
+keymap.set('n', '<C-j>', '<C-w>j')
+keymap.set('n', '<C-l>', '<C-w>l')
 
 -- Resive window
 keymap.set('n', '<C-w><left>', '<C-w><')
