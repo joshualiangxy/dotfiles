@@ -42,6 +42,7 @@ vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.mouse = 'a'
 vim.opt.hidden = true
+vim.opt.autochdir = true
 vim.opt.updatetime = 300
 
 vim.opt.splitbelow = true
