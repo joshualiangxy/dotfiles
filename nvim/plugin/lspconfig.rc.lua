@@ -13,6 +13,14 @@ local on_attach = function(client, _)
   -- end
 end
 
+nvim_lsp.rust_analyzer.setup {
+  -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+}
+
+--[[
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
@@ -34,8 +42,9 @@ nvim_lsp.clangd.setup {
   single_file_support = true,
   cmd = { "clangd-12" }
 }
+--]]
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -52,6 +61,7 @@ nvim_lsp.sumneko_lua.setup {
   }
 }
 
+--[[
 nvim_lsp.ocamllsp.setup {
   on_attach = on_attach,
   filetypes = {
@@ -80,7 +90,6 @@ nvim_lsp.java_language_server.setup {
   settings = {}
 }
 
---[[
 nvim_lsp.pylsp.setup {
   settings = {
     pylsp = {
