@@ -1,4 +1,5 @@
 local keymap = vim.keymap
+vim.g.mapleader = ' '
 
 -- Do not yank with x
 keymap.set('n', 'x', '"_x')
@@ -17,11 +18,11 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
 
 -- Split window
-keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
-keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
+keymap.set('n', 'ss', ':split<Return>', { silent = true })
+keymap.set('n', 'sv', ':vsplit<Return>', { silent = true })
 
 -- Move window
-keymap.set('n', '<Space>', '<C-w>w')
+-- keymap.set('n', '<Space>', '<C-w>w')
 keymap.set('n', '<C-h>', '<C-w>h')
 keymap.set('n', '<C-k>', '<C-w>k')
 keymap.set('n', '<C-j>', '<C-w>j')

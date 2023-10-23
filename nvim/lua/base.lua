@@ -4,8 +4,10 @@ vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
+-- Linenumber column
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.wo.signcolumn = 'yes'
 
 -- Search
 vim.opt.hlsearch = true
@@ -71,16 +73,13 @@ vim.opt.formatoptions:append { 'r' }
 vim.wo.colorcolumn = "81"
 
 -- highlight yanked stuff. Done with native neovim api. No plugin.
--- augroup command didn't work with vim.cmd.
--- TODO: Find the difference between vim.api.nvim_command (alias vim.cmd)
--- and vim.api.nvim_exec
-vim.api.nvim_exec(
+vim.api.nvim_exec2(
   [[
     augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
     augroup END
   ]],
-  false
+  { output = false }
 )
 
