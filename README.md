@@ -1,6 +1,6 @@
 # Dotfiles
 
-![Screenshot of shell prompt](https://i.imgur.com/qzdMWzW.png)
+![Screenshot of shell prompt](https://i.imgur.com/97I2fbP.png)
 ![Screenshot of neovim](https://i.imgur.com/qaFKEI9.png)
 
 ### My current set up
