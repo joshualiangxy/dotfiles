@@ -13,14 +13,18 @@ local on_attach = function(client, _)
   -- end
 end
 
+--[[
 nvim_lsp.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
-    ['rust-analyzer'] = {},
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = true;
+      },
+    },
   },
 }
 
---[[
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },

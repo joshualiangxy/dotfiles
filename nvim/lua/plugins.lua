@@ -43,7 +43,7 @@ lazy.setup {
   -- Auto-completion engine
   {
     'hrsh7th/nvim-cmp',
-    event = 'VeryLazy',
+    -- event = 'VeryLazy',
     dependencies = {
       'onsails/lspkind-nvim', -- vscode-like pictograms
       'hrsh7th/cmp-buffer',   -- nvim-cmp source for buffer words
@@ -61,6 +61,8 @@ lazy.setup {
     event = 'VeryLazy',
     build = ':TSUpdate'
   },
+  'MunifTanjim/rust-tools.nvim',
+
   -- LSP UIs
   {
     'glepnir/lspsaga.nvim',
@@ -70,6 +72,11 @@ lazy.setup {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
   },
+
+  -- debugger
+  'mfussenegger/nvim-dap',
+  'rcarriga/nvim-dap-ui',
+
   'windwp/nvim-autopairs',
   'windwp/nvim-ts-autotag',
   'nvim-telescope/telescope-file-browser.nvim',
