@@ -3,23 +3,19 @@ if (not status) then return end
 
 local actions = require('telescope.actions')
 
-function telescope_buffer_dir()
-  return vim.fn.expand('%:p:h')
-end
-
 function file_browser()
   return telescope
     .extensions
     .file_browser
     .file_browser({
       path = '%:p:h',
-      cwd = telescope_buffer_dir(),
+      cwd = vim.fn.expand('%:p:h'),
       respect_git_ignore = false,
       hidden = true,
       grouped = true,
-      previewer = false,
+      previewer = true,
       initial_mode = 'insert',
-      layout_config = { height = 40 }
+      -- layout_config = { height = 40 }
     })
 end
 
