@@ -18,3 +18,5 @@ export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 # What fzf uses to find files
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
+export LESS='--use-color --incsearch --ignore-case --RAW-CONTROL-CHARS'
+
